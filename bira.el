@@ -1,9 +1,6 @@
 ;;; elisp libraries I run from source checkouts:
 
-;(add-to-list 'load-path "/home/phil/src/elisp/clojure-mode")
-
-(eval-after-load 'ruby-mode
-  '(add-hook 'ruby-mode-hook 'esk-paredit-nonlisp))
+;(add-to-list 'load-path "/home/bira/source/elisp/clojure-mode")
 
 ;; unfortunately some codebases use tabs. =(
 (set-default 'tab-width 2)
@@ -15,5 +12,18 @@
 
 ;;; broken ido
 (defun ido-directory-too-big-p (arg) nil)
+
+;; remove trailing whitespace before saving
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(global-set-key "\M-g" 'goto-line)
+
+;;ruby-electric
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (require 'ruby-electric)
+            (ruby-electric-mode t)
+            ))
 
 (color-theme-blackboard)
