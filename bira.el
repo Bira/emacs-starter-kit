@@ -26,4 +26,5 @@
             (ruby-electric-mode t)
             ))
 
+(global-linum-mode)
 (color-theme-blackboard)
