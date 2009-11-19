@@ -26,5 +26,21 @@
             (ruby-electric-mode t)
             ))
 
+;; Rudel
+
+(defun load-rudel ()
+  (interactive)
+  (add-to-list 'load-path "~/source/cedet/eieio")
+  (add-to-list 'load-path "~/source/cedet/common")
+  (add-to-list 'load-path "~/source/rudel/")
+  (add-to-list 'load-path "~/source/rudel/jupiter")
+  (add-to-list 'load-path "~/source/rudel/obby")
+  (require 'rudel-mode)
+  (require 'rudel-obby)
+  (global-rudel-minor-mode))
+
 (global-linum-mode)
+(global-whitespace-mode)
+(setq whitespace-line-column 80)
+(add-to-list 'whitespace-style 'lines-tail)
 (color-theme-blackboard)
