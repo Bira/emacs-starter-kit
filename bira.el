@@ -40,7 +40,7 @@
   (global-rudel-minor-mode))
 
 (global-linum-mode)
-(global-whitespace-mode)
 (setq whitespace-line-column 80)
-(add-to-list 'whitespace-style 'lines-tail)
+(set-variable 'whitespace-style '(trailing lines-tail))
+(global-whitespace-mode)
 (color-theme-blackboard)
