@@ -32,4 +32,3 @@
 (setq whitespace-line-column 80)
 (set-variable 'whitespace-style '(trailing lines-tail))
 (global-whitespace-mode)
-(color-theme-blackboard)
