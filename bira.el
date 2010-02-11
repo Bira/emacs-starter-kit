@@ -1,6 +1,12 @@
 ;;; elisp libraries I run from source checkouts:
 
-;(add-to-list 'load-path "/home/bira/source/elisp/clojure-mode")
+(add-to-list 'load-path "/home/bira/source/elisp/cucumber.el")
+(add-to-list 'load-path "/home/bira/source/clojure/clojure-mode")
+(add-to-list 'load-path "/home/bira/source/clojure/swank-clojure/src/emacs")
+
+(autoload 'cucumber-mode "cucumber-mode" "Mode for editing cucumber files" t)
+(autoload 'feature-mode "feature-mode" "Mode for editing feature files" t)
+(add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
 
 ;; unfortunately some codebases use tabs. =(
 (set-default 'tab-width 2)
@@ -38,6 +44,27 @@
   (require 'rudel-mode)
   (require 'rudel-obby)
   (global-rudel-minor-mode))
+
+;; SLIME e swank-clojure
+
+(require 'clojure-mode)
+
+(require 'swank-clojure-autoload)
+
+(swank-clojure-config
+ (setq swank-clojure-jar-path "/home/bira/source/clojure/clojure/clojure.jar")
+ (setq swank-clojure-extra-classpaths
+       (list "/home/bira/source/clojure/clojure-contrib/clojure-contrib.jar"
+             "/home/bira/source/clojure/swank-clojure/src/main/clojure")))
+
+(eval-after-load "slime"
+  '(progn (slime-setup '(slime-repl))))
+
+(add-to-list 'load-path "/home/bira/source/clojure/slime")
+(require 'slime)
+
+(slime-setup)
+
 
 (global-linum-mode)
 (setq whitespace-line-column 80)
