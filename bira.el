@@ -1,9 +1,11 @@
 ;;; elisp libraries I run from source checkouts:
 
 (add-to-list 'load-path "/home/bira/source/elisp/cucumber.el")
+(add-to-list 'load-path "/home/bira/source/elisp/rspec-mode")
 
 (autoload 'cucumber-mode "cucumber-mode" "Mode for editing cucumber files" t)
 (autoload 'feature-mode "feature-mode" "Mode for editing feature files" t)
+(autoload 'rspec-mode "rspec-mode" "Mode for editing RSpec files" t)
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
 
 ;; unfortunately some codebases use tabs. =(
@@ -27,8 +29,9 @@
 (add-hook 'ruby-mode-hook
           (lambda ()
             (require 'ruby-electric)
+            (require 'ruby-rspec)
             (ruby-electric-mode t)
-            ))
+            (rspec-mode t)))
 
 ;; Rudel
 
@@ -42,6 +45,13 @@
   (require 'rudel-mode)
   (require 'rudel-obby)
   (global-rudel-minor-mode))
+
+
+;; Swank-clojure customization
+
+(setq swank-clojure-classpath
+      (directory-files "~/source/ClojureX/lib" t ".jar$"))
+
 
 
 (global-linum-mode)
