@@ -29,7 +29,7 @@
 (add-hook 'ruby-mode-hook
           (lambda ()
             (require 'ruby-electric)
-            (require 'ruby-rspec)
+            (require 'rspec-mode)
             (ruby-electric-mode t)
             (rspec-mode t)))
 
