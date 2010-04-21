@@ -33,6 +33,10 @@
             (ruby-electric-mode t)
             (rspec-mode t)))
 
+;; Yay, no more encoding comments!
+
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;; Rudel
 
 (defun load-rudel ()
