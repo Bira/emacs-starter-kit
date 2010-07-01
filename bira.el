@@ -62,5 +62,5 @@
 (setq whitespace-line-column 80)
 (set-variable 'whitespace-style '(trailing lines-tail))
 (global-whitespace-mode)
-(if window-system
+(if (or window-system (not initial-window-system))
     (color-theme-zenburn))
