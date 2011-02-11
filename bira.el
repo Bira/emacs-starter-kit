@@ -1,12 +1,14 @@
 ;;; elisp libraries I run from source checkouts:
-
-(add-to-list 'load-path "/home/bira/source/elisp/cucumber.el")
+(add-to-list 'load-path "/home/bira/source/elisp")
 (add-to-list 'load-path "/home/bira/source/elisp/rspec-mode")
+
 
 (autoload 'cucumber-mode "cucumber-mode" "Mode for editing cucumber files" t)
 (autoload 'feature-mode "feature-mode" "Mode for editing feature files" t)
 (autoload 'rspec-mode "rspec-mode" "Mode for editing RSpec files" t)
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 
 ;; unfortunately some codebases use tabs. =(
 (set-default 'tab-width 2)
@@ -62,5 +64,15 @@
 (setq whitespace-line-column 80)
 (set-variable 'whitespace-style '(trailing lines-tail))
 (global-whitespace-mode)
-(if (or window-system (not initial-window-system))
-    (color-theme-zenburn))
+(color-theme-zenburn)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
+ '(mumamo-background-chunk-submode1 ((((class color) (min-colors 88) (background dark)) nil)))
+ '(mumamo-background-chunk-submode2 ((((class color) (min-colors 88) (background dark)) nil)))
+ '(mumamo-background-chunk-submode3 ((((class color) (min-colors 88) (background dark)) nil)))
+ '(mumamo-background-chunk-submode4 ((((class color) (min-colors 88) (background dark)) nil))))
