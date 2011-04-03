@@ -1,6 +1,8 @@
 ;;; elisp libraries I run from source checkouts:
-(add-to-list 'load-path "/home/bira/source/elisp")
-(add-to-list 'load-path "/home/bira/source/elisp/rspec-mode")
+(if (file-exists-p "/home/bira/source/elisp")
+    (add-to-list 'load-path "/home/bira/source/elisp"))
+(if (file-exists-p "/home/bira/source/elisp/rspec-mode")
+    (add-to-list 'load-path "/home/bira/source/elisp/rspec-mode"))
 
 
 (autoload 'cucumber-mode "cucumber-mode" "Mode for editing cucumber files" t)
